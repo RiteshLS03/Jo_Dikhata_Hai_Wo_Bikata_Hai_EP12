@@ -54,17 +54,18 @@ console.log(json);
   return (
   (<>
       <div className="container">
-        <div className="search-nav">
+        <div className="search-nav p-5 m-2">
           <input
             type="text"
             id="searchbar"
             placeholder="Search, Order, Enjoy!"
+            className="border-2 w-[400px] p-2 rounded-xl"
             value={searchText}
             onChange={(e) => {
              setSearchText(e.target.value);
             }}
           />
-          <button 
+          <button  className="border-1 p-2 m-2 bg-grey rounded-xl text-black"
             onClick={() => {
               // need to filter the data
               const data = filterData(searchText, allRestaurants);

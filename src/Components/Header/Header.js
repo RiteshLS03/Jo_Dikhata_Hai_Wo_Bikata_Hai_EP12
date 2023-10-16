@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { logo, vector } from "../../Images/index"; /* Images for UI */
 import { Link } from "react-router-dom";
 import { Body } from "../Index";
-import "./Header.css";
+// import "./Header.css"; //removed because of tailwind css
 import useOnline from "../../utils/useOnline";
 import Instamart from "../Instamart";
 
@@ -12,8 +12,8 @@ function Header() {
   return (
     <>
       {/* LOGO */}
-      <div className="header">
-        <img className="logo" src={logo} alt="logo">
+      <div className="flex mx-32 p-3 justify-between shadow-lg rounded-xl bg-gray-150">
+        <img className="h-24 p-2" src={logo} alt="logo">
           {/* <Link to="about"></Link> */}
         </img>
         {/* <Link to="home"/>
@@ -42,14 +42,14 @@ function Header() {
           </button>
         </div> */}
         {/* NAVBAR */}
-        <li className="nav-items">
-          <ul>
+        <li className="flex py-8">
+          <ul className="px-6">
             <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
               Home
             </Link>{" "}
           </ul>
-          <ul>Food</ul>
-          <ul>
+          <ul className="px-6">Food</ul>
+          <ul className="px-6">
             <Link
               style={{ textDecoration: "none", color: "inherit" }}
               to="/about"
@@ -57,12 +57,12 @@ function Header() {
               About
             </Link>
           </ul>
-          <ul>
+          <ul className="px-6">
             <a href="">
               <img src={vector} alt="cart" />
             </a>
           </ul>
-          <ul>
+          <ul className="px-6">
             {online ? "🟢" : "🔴"}
             {isLoggedIn ? (
               <button onClick={() => setIsLoggedIn(false)}>Logout</button>
@@ -70,7 +70,9 @@ function Header() {
               <button onClick={() => setIsLoggedIn(true)}>Login</button>
             )}
           </ul>
-          <ul><Link to="/Instamart">Instamart</Link></ul>
+          <ul className="px-6">
+            <Link to="/Instamart">Instamart</Link>
+          </ul>
         </li>
       </div>
     </>
