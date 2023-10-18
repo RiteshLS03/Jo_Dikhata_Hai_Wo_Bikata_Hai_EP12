@@ -79,14 +79,14 @@ console.log(json);
         </div>
 
         {/* CARDS */}
-      <div className="cards">
+      <div className="cards mx-auto sm:mx-auto sm:justify-around md:mx-auto">
        {  
   !allRestaurants ?
       <ShimmarUI /> :
       filteredRestaurants?.map((restaurant) => 
          {
            return ( 
-            <Link style={{ "textDecoration": "none", "color":"inherit" }} to={"/restaurant/"+restaurant?.info?.id} key={restaurant?.info?.id}>
+            <Link to={"/restaurant/"+restaurant?.info?.id} key={restaurant?.info?.id}>
               <div className="body-rest" >
               <RestaurantCard  restaurant={...restaurant}  />
               </div>

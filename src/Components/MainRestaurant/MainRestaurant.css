@@ -1,7 +1,7 @@
 .main_restaurant_restaurant-header {
   display: flex;
   justify-content: space-between;
-  margin: 1rem 20rem;
+  /* margin: 1rem 20rem; */
   /* padding: 1rem 10rem; */
   font-family: var(--font-family);
   border-bottom: 1px dashed #d3d3d3;
@@ -41,7 +41,7 @@
 .main_restaurant_restaurant-body_upper {
   display: flex;
   font-family: var(--font-family);
-  margin: 1rem 20rem;
+  /* margin: 1rem 20rem; */
   border-bottom: 1px dashed #d3d3d3;
 }
 
@@ -55,7 +55,7 @@
 
 .restaurant_lists {
   display: flex;
-  margin: 1rem 20rem;
+  /* margin: 1rem 20rem; */
   /* padding: 1rem 10rem; */
   font-family: var(--font-family);
   border-bottom: 1px dashed #d3d3d3;

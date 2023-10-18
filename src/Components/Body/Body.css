@@ -15,9 +15,9 @@
 
 .cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-  margin: auto 8rem;
+  margin: auto 7rem;
   /* padding: 5rem; */
 }
 

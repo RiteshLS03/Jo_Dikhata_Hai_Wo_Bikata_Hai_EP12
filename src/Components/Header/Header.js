@@ -5,75 +5,107 @@ import { Body } from "../Index";
 // import "./Header.css"; //removed because of tailwind css
 import useOnline from "../../utils/useOnline";
 import Instamart from "../Instamart";
+import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
 
-function Header() {
+const Menu = () => {
   const [isLoggedIn, setIsLoggedIn] = useState("true");
   const online = useOnline();
+
+  return (
+    <>
+      <ul className="flex py-2 gap-4 text-[#3D4152] font-bold sm:text-sm md:text-sm:px-2:mx-2">
+        <li className="flex items-center md:text-sm:px-2:mx-2 md:p-2">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="flex items-center md:text-sm:px-2:mx-4 md:p-2">Food</li>
+        <li className="flex items-center md:text-sm:px-2:mx-4 md:p-2">
+          <Link
+            style={{ textDecoration: "none", color: "inherit" }}
+            to="/about"
+          >
+            About
+          </Link>
+        </li>
+        <li className="flex items-center md:text-sm:px-2:mx-4 md:p-2">
+          <Link to="/Instamart">Instamart</Link>
+        </li>
+        <li
+          className="flex items-center md:text-sm md:p-2"
+          style={{margin:"0 0.5rem"}}
+        >
+          {isLoggedIn ? (
+            <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+          ) : (
+            <button onClick={() => setIsLoggedIn(true)}>Login</button>
+          )}
+        </li>
+        <li className="flex items-center md:p-2">
+          <h6>{online ? "🟢" : "🔴"}</h6>
+        </li>
+      </ul>
+    </>
+  );
+};
+
+function Header() {
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <>
       {/* LOGO */}
-      <div className="flex mx-32 p-3 justify-between shadow-lg rounded-xl bg-gray-150 ">
-        <img className="h-24 p-2" src={logo} alt="logo">
-          {/* <Link to="about"></Link> */}
-        </img>
-        {/* <Link to="home"/>
-        <img/> */}
-        {/* SEARCHBAR  */}
-        {/* <div className="search-nav">
-          <input
-            type="text"
-            id="searchbar"
-            placeholder="Search, Order, Enjoy!"
-            value={searchText}
-            onChange={(e) => {
-             setSearchText(e.target.value);
-             <Body searchText={searchText} /> //passing the data to body comp
-            }}
-          />
-          <button 
-            onClick={() => {
-              // need to filter the data
-              // const data = filterData(searchText, allRestaurants);
-              // setFilteredRestaurants(data);
-              <Body searchText={searchText} allRestaurants={searchingData} />
-            }}
-          >
-            Search
-          </button>
-        </div> */}
+      <div className="flex sm:px-10 px-20 mx-full justify-between shadow-lg rounded-xl bg-gray-150 ">
+        <div>
+          <img className="w-20" src={logo} alt="logo"></img>
+        </div>
         {/* NAVBAR */}
-        <li className="flex py-8 text-[#3D4152] font-bold ">
-          <ul className="px-6">
-            <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
-              Home
-            </Link>{" "}
-          </ul>
-          <ul className="px-6">Food</ul>
-          <ul className="px-6">
-            <Link
-              style={{ textDecoration: "none", color: "inherit" }}
-              to="/about"
-            >
-              About
-            </Link>
-          </ul>
-          <ul className="px-6">
-            <a href="">
-              <img src={vector} alt="cart" />
-            </a>
-          </ul>
-          <ul className="px-6">
-            {online ? "🟢" : "🔴"}
-            {isLoggedIn ? (
-              <button onClick={() => setIsLoggedIn(false)}>Logout</button>
-            ) : (
-              <button onClick={() => setIsLoggedIn(true)}>Login</button>
-            )}
-          </ul>
-          <ul className="px-6">
-            <Link to="/Instamart">Instamart</Link>
-          </ul>
-        </li>
+        <div className="sm:hidden flex items-center">
+          <Menu />
+        </div>
+        <div className="yumies_navbar-menu flex items-center md:hidden lg:hidden xl:hidden 2xl:hidden relative ">
+          {toggleMenu ? (
+            <RiCloseLine
+              size={27}
+              onClick={() => {
+                setToggleMenu(false);
+              }}
+            />
+          ) : (
+            <RiMenu3Line
+              size={27}
+              onClick={() => {
+                setToggleMenu(true);
+              }}
+            />
+          )}
+          {toggleMenu && (
+            <div className="flex  items-center ">
+              <Menu />
+            </div>
+          )}
+        </div>
+        {/* <p className="sm:p-2 md:hidden lg:hidden xl:hidden 2xl:hidden">
+          {toggleMenu ? (
+            <RiCloseLine
+              size={27}
+              onClick={() => {
+                setToggleMenu(false);
+              }}
+            />
+          ) : (
+            <RiMenu3Line
+              size={27}
+              onClick={() => {
+                setToggleMenu(true);
+              }}
+            />
+          )}
+          {toggleMenu && (
+            <div className="relative flex-col ">
+              <div className=" flex justify-end items-center flex-col text-end absolute">
+                <Menu />
+              </div>
+            </div>
+          )}
+        </p> */}
       </div>
     </>
   );

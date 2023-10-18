@@ -32,9 +32,9 @@ const MainRestaurant = () => {
   ) : (
     <>
       {/* Got help from the git repo CHE/NA */}
-      <div className="restaurant_menu">
+      <div className="sm:mx-auto:px-auto">
         <div className="restaurant_summary">
-          <div className="main_restaurant_restaurant-header">
+          <div className="main_restaurant_restaurant-header sm:mx-4 md:mx-4 lg:mx-20 xl:mx-20 2xl:mx-56">
             <div className="info_left">
               <h2>{restaurant?.name}</h2>
               <h5 style={{color:"#7e808c"}} className="text-sm">{restaurant?.cuisines?.join(", ")}</h5>
@@ -50,8 +50,8 @@ const MainRestaurant = () => {
             </div>
           </div>
           {/* Price and Timing */}
-          <div className="main_restaurant_restaurant-body">
-            <div className="main_restaurant_restaurant-body_upper">
+          <div className="main_restaurant_restaurant-body sm:mx-4md:mx-4 lg:mx-20 xl:mx-20 2xl:mx-56">
+            <div className="main_restaurant_restaurant-body_upper sm:mx-4">
               <h3 className="text-lg ">
                 <AiOutlineClockCircle className="mx-2"/>
                 {restaurant?.sla?.slaString}
@@ -64,7 +64,7 @@ const MainRestaurant = () => {
           </div>
         </div>
         {/* restaurant lists */}
-        <div className="restaurant_lists">
+        <div className="restaurant_lists sm:mx-4 md:mx-4 lg:mx-20 xl:mx-20 2xl:mx-56">
           <div className="menu-items-container">
             <div className="menu-title-wrap">
               <h3 className="menu-title">Recommended</h3>
