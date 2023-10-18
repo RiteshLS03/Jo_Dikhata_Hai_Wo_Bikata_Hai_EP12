@@ -1,6 +1,6 @@
 .container2 {
   border-bottom: 1px dashed #d3d3d3;
-  margin: 1rem 20rem;
+  /* margin: 1rem 20rem; */
   display: flex;
   justify-content: space-between;
   padding: 5px;

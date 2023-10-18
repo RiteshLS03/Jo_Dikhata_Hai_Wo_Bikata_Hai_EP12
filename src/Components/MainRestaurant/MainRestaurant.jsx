@@ -32,7 +32,7 @@ const MainRestaurant = () => {
   ) : (
     <>
       {/* Got help from the git repo CHE/NA */}
-      <div className="sm:mx-auto:px-auto">
+      <div className="sm:mx-auto:px-auto md:mx-20 lg:mx-20">
         <div className="restaurant_summary">
           <div className="main_restaurant_restaurant-header sm:mx-4 md:mx-4 lg:mx-20 xl:mx-20 2xl:mx-56">
             <div className="info_left">
